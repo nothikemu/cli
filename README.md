@@ -45,7 +45,7 @@ python convert.py "/path/to/documents/notes.txt" py
 #### Example 2: Convert to a Windows Batch File (.bat)
 This example enforces the standard Windows character set (cp1252):
 ```bash
-python convert.py "C:\(\path\to\documents\setup\) notes.txt" bat -e cp1252
+python convert.py "C:\(\path\to\documents\notes.\)txt" bat -e cp1252
 ```
 
 #### Example 3: Convert to a Linux/macOS Shell Script (.sh)
