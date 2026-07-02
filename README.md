@@ -1,76 +1,72 @@
-# 🛠️ CLI File Extension Converter
+# CLI File Extension Converter
 
-<!-- Visual Badges for GitHub -->
 ![Python Version](https://shields.io)
 ![Platform](https://shields.io)
 ![License](https://shields.io)
 ![Maintained](https://shields.io)
 
-A lightweight, practical command-line tool to instantly convert plain text pad files (`.txt` or `.md`) into functioning code scripts, batch files, or web documents. 
+A lightweight, practical command-line tool designed to convert plain text files (.txt or .md) into code scripts, batch files, or web documents. 
 
-Unlike a simple rename, this tool handles background compatibility by automatically correcting operating system-specific line endings and character encodings.
-
----
-
-## 🔥 Key Features
-
-* **Smart Line-Ending Fixes**: Automatically applies Windows breaks (`\r\n`) for `.bat` files or Unix breaks (`\n`) for `.py` and `.sh` files to prevent script syntax errors.
-* **Custom Encodings**: Easily switch between `utf-8`, `ascii`, or Windows-standard `cp1252`.
-* **Safe Processing**: Never deletes or modifies your original text files; it generates a brand-new file right next to the source.
+Unlike a simple file rename, this utility handles background compatibility by correcting operating system-specific line endings and character encodings automatically.
 
 ---
 
-## 🚀 Step-by-Step Instructions
+## Core Features
 
-Follow these steps to set up and run the application on your machine.
+* **Line-Ending Adjustment**: Automatically applies Windows carriage returns (\r\n) for .bat files or Unix line feeds (\n) for .py and .sh scripts to prevent execution syntax errors.
+* **Encoding Selection**: Allows explicit conversion between utf-8, ascii, or Windows-standard cp1252 character sets.
+* **Safe Processing**: Leaves your source document completely untouched and outputs the new file in the original directory.
 
-### Step 1: Download the Script
-Save the Python code onto your computer as a file named `convert.py`. Take note of which folder you save it in (for example: `C:\Users\lohit\Documents\Scripts`).
+---
 
-### Step 2: Open Your Terminal
-* **Windows**: Press the `Windows Key`, type `cmd`, and press `Enter`.
-* **Mac**: Press `Cmd + Space`, type `Terminal`, and press `Enter`.
+## Step-by-Step Usage Guide
 
-### Step 3: Navigate to the Script Folder
-Use the `cd` command to move your terminal into the exact folder where you saved `convert.py`:
+### Step 1: Save the Script
+Save the Python application code on your system as `convert.py`. Take note of the folder path where you place it (for example: `/path/to/your/scripts/`).
+
+### Step 2: Open the Terminal
+* **Windows**: Press the Windows Key, type `cmd`, and press Enter.
+* **macOS/Linux**: Press Cmd + Space (or your system shortcut), type `Terminal`, and press Enter.
+
+### Step 3: Navigate to the Script Directory
+Use the change directory (`cd`) command to move your terminal focus to the folder containing `convert.py`:
 ```bash
-cd "C:\Users\lohit\Documents\Scripts"
+cd "/path/to/your/scripts"
 ```
 
-### Step 4: Run the Conversion Command
-Use the following format to run your tool. Make sure to wrap your file path in **quotation marks** if your file name contains spaces.
+### Step 4: Execute the Conversion
+Run the script by passing the target file path followed by your desired file extension. Wrap the path in quotation marks if your file name contains spaces.
 
-#### 📝 Real-World Examples:
+#### Example 1: Convert to a Python Script (.py)
+```bash
+python convert.py "/path/to/documents/notes.txt" py
+```
 
-* **Convert to a Python Script (`.py`)**
-  ```bash
-  python convert.py "C:\Users\lohit\Documents\PC\Ready or Not.txt" py
-  ```
+#### Example 2: Convert to a Windows Batch File (.bat)
+This example enforces the standard Windows character set (cp1252):
+```bash
+python convert.py "C:\(\path\to\documents\setup\) notes.txt" bat -e cp1252
+```
 
-* **Convert to a Windows Batch File (`.bat`)**
-  ```bash
-  python convert.py "C:\Users\lohit\Documents\PC\Ready or Not.txt" bat -e cp1252
-  ```
+#### Example 3: Convert to a Linux/macOS Shell Script (.sh)
+```bash
+python convert.py "/path/to/documents/script_draft.md" sh
+```
 
-* **Convert to a Linux/Mac Shell Script (`.sh`)**
-  ```bash
-  python convert.py "C:\Users\lohit\Documents\PC\Ready or Not.txt" sh
-  ```
-
-Your newly converted file will instantly appear in the `C:\Users\lohit\Documents\PC\` folder right next to your original file!
+The newly formatted file will generate instantly inside the same directory, positioned right alongside your original text file.
 
 ---
 
-## ⚙️ Command Options & Flags
+## Command Line Arguments
 
-You can view the built-in user manual inside your terminal at any time by running:
+You can display the built-in manual inside your terminal interface at any time by running:
 ```bash
 python convert.py --help
 ```
 
 | Argument / Flag | Description | Default |
 | :--- | :--- | :--- |
-| `file` | **(Required)** The full absolute path to your source text file. | *None* |
-| `ext` | **(Required)** The target file extension you want to output. | *None* |
-| `-e`, `--encoding` | Specify character encoding (e.g., `utf-8`, `ascii`, `cp1252`). | `utf-8` |
-| `--no-fix` | Disables the automatic line-ending adjustments. | *Enabled* |
+| `file` | **Required.** The absolute file path to your source text document. | *None* |
+| `ext` | **Required.** The target file extension to output (e.g., py, bat, sh). | *None* |
+| `-e`, `--encoding` | Specifies the character encoding format (utf-8, ascii, cp1252). | `utf-8` |
+| `--no-fix` | Disables automatic line-ending adjustments for cross-platform files. | *Enabled* |
