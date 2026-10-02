@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "convert-text"
+dynamic = ["version"]
+description = "Convert plain text and Markdown files into scripts, batch files, config files and web pages with correct line endings, encodings and shebangs."
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["cli", "line-endings", "encoding", "markdown", "converter", "crlf"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+convert-text = "convert:main"
+
+[tool.setuptools]
+py-modules = ["convert"]
+
+[tool.setuptools.dynamic]
+version = { attr = "convert.__version__" }
